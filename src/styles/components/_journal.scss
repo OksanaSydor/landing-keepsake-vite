@@ -1,0 +1,47 @@
+@use '../utils' as *;
+
+.journal-card {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+
+  &__img {
+    flex: 0 0 var(--preview);
+    width: var(--preview);
+    height: var(--preview);
+    object-fit: cover;
+  }
+
+  &__content {
+    min-width: 0;
+  }
+
+  &__meta {
+    color: var(--color-muted);
+    font-size: 12px;
+
+    span {
+      color: var(--color-teal);
+    }
+  }
+
+  &__title {
+    margin: 4px 0 var(--space-1);
+  }
+
+  &__link {
+    display: inline-block;
+    margin-top: var(--space-1);
+    color: var(--color-accent);
+    font-weight: 700;
+
+    &:hover {
+      color: var(--color-accent-hover);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--color-teal);
+      outline-offset: 3px;
+    }
+  }
+}
