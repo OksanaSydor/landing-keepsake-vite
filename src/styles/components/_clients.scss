@@ -1,0 +1,108 @@
+@use '../utils' as *;
+
+// Clients section
+.clients {
+  padding-block: calc(var(--section-gap) / 2);
+}
+
+// Client logos
+.clients__logos {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+}
+
+.clients__logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  height: 64px;
+  border: 1px solid var(--color-border);
+  color: var(--color-muted);
+  font: 700 18px var(--font-head);
+  text-transform: uppercase;
+}
+
+// Testimonial
+.clients__quote {
+  padding: var(--space-4) var(--space-3);
+  background: var(--color-bg-light);
+  text-align: center;
+}
+
+.clients__quote-mark {
+  display: block;
+  color: var(--color-accent);
+  font: 700 64px / 1 var(--font-head);
+}
+
+.clients__quote blockquote p {
+  color: var(--color-text-dark);
+  font: 300 var(--fs-quote) / 1.6 var(--font-body);
+}
+
+// Author
+.clients__author {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+  text-align: left;
+}
+
+.clients__avatar {
+  display: flex;
+  flex: 0 0 48px;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--color-text-dark);
+  color: var(--color-white);
+  font: 400 16px var(--font-head);
+}
+
+.clients__details {
+  color: var(--color-text);
+}
+
+.clients__details strong {
+  color: var(--color-text-dark);
+}
+
+// Testimonial dots
+.clients__dots {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-1);
+  margin-top: var(--space-3);
+}
+
+.clients__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-border);
+}
+
+.clients__dot--active {
+  background: var(--color-accent);
+}
+
+// Tablet
+@include mq(md) {
+  .clients__logos {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+// Desktop
+@include mq(lg) {
+  .clients__logos {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+}
