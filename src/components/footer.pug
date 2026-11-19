@@ -1,5 +1,50 @@
-footer.footer
-    .footer-outer
-        .footer-inner
-            include logo
-            h4 Приєднуйся і живи зі мною у світі солодощів!
+footer#contact.footer
+  .container
+    .footer__top
+      .footer__subscription
+        p#subscribe-success.footer__success(role="status")
+          | Thank you! You are subscribed.
+
+        form.footer__form(action="#subscribe-success")
+          label.footer__label(for="footer-email") Email
+
+          input#footer-email.footer__input(
+            type="email"
+            name="email"
+            required
+            placeholder="Your email"
+            aria-describedby="footer-email-error"
+          )
+
+          p#footer-email-error.footer__error
+            | Enter a valid email, for example name@mail.com.
+
+          label.footer__agreement
+            input(type="checkbox" name="agree" required)
+            | I agree to the privacy policy
+
+          button.btn.btn--primary(type="submit") Subscribe
+
+      .footer__links
+        each column in footerColumns
+          ul.footer__column
+            li.footer__heading= column.title
+
+            each link in column.links
+              li
+                a(href=link.href)= link.label
+
+    .footer__bottom
+      p.footer__copyright
+        | © #{copyrightYear} Keepsake. All rights reserved.
+
+      .footer__social
+        each social in socialLinks
+          a(
+            href=social.href
+            aria-label=social.label
+          )
+            +icon(social.icon, 18)
+
+  a.footer__back-to-top(href="#top" aria-label="Back to top")
+    +icon('arrow-up', 20)
