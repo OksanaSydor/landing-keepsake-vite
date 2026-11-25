@@ -1,3 +1,110 @@
-section {
-  padding: 3rem 0;
+@use '../utils' as *;
+
+// Hero section
+.hero {
+  padding-block: var(--section-gap);
+  background: var(--color-bg-light);
+}
+
+.hero__text {
+  max-width: 520px;
+  margin: var(--space-2) 0 var(--space-4);
+}
+
+.hero__actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+
+  .btn {
+    width: 100%;
+  }
+}
+
+// Other sections
+.works,
+.services,
+.journal,
+.cta {
+  padding-block: calc(var(--section-gap) / 2);
+}
+
+// Call to action
+.cta__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  text-align: center;
+}
+
+// Statistics
+.stats {
+  padding-block: var(--space-4);
+  border-block: 1px solid var(--color-border);
+  text-align: center;
+}
+
+// Tablet: 768px
+@include mq(md) {
+  :root {
+    --section-gap: 72px;
+    --gutter: 40px;
+    --fs-h1: 32px;
+    --fs-cta: 24px;
+    --fs-nav: 13px;
+    --fs-quote: 19px;
+    --fs-stat: 40px;
+    --fs-logo: 26px;
+    --logo-k: 40px;
+    --icon: 96px;
+    --preview: 150px;
+    --cols: 2;
+    --grid-gap: 12px;
+    --ratio: 1 / 0.79;
+    --nav-gap: 24px;
+  }
+
+  .hero__actions {
+    flex-direction: row;
+
+    .btn {
+      width: auto;
+    }
+  }
+
+  .works-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .stats__container {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+// Desktop: 1280px
+@include mq(lg) {
+  :root {
+    --section-gap: 90px;
+    --gutter: 90px;
+    --fs-h1: 40px;
+    --fs-cta: 28px;
+    --fs-quote: 22px;
+    --fs-stat: 48px;
+    --cols: 3;
+    --grid-gap: 14px;
+    --nav-gap: 40px;
+  }
+
+  .works-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .journal-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
