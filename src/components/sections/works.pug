@@ -1,0 +1,29 @@
+section#works.works.container
+  h2.section-title Our awesome works
+
+  .filters(role="group" aria-label="Filter works by category")
+    each cat in filterCategories
+      if cat.checked
+        input.filters__radio.sr(
+          type="radio"
+          name="filter"
+          id=`filter-${cat.id}`
+          checked
+        )
+      else
+        input.filters__radio.sr(
+          type="radio"
+          name="filter"
+          id=`filter-${cat.id}`
+        )
+
+    .filters__chips
+      each cat in filterCategories
+        label.filters__chip(for=`filter-${cat.id}`)= cat.label
+
+    .works-grid
+      each work, i in works
+        +work-card(work)
+
+    .works__more
+      +btn('Load more works', '', 'secondary')

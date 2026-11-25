@@ -1,0 +1,14 @@
+mixin work-card(work)
+  article.work-card(data-category=work.category)
+    +picture(work.image, work.alt, 600, 474, true)(class="work-card__img")
+
+    a.work-card__overlay(
+      href="#"
+      aria-label=`View ${work.title} project`
+    )
+      span.work-card__plus(aria-hidden="true") +
+      h3.work-card__title= work.title
+      span.work-card__category= work.categoryLabel
+
+      if block
+        block
