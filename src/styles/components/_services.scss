@@ -1,0 +1,26 @@
+@use '../utils' as *;
+
+.service-card {
+  text-align: center;
+}
+
+.service-card__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--icon);
+  height: var(--icon);
+  margin: 0 auto var(--space-2);
+  border-radius: 50%;
+  background: var(--color-bg-light);
+  color: var(--color-text-dark);
+}
+
+.service-card__title {
+  margin-bottom: var(--space-1);
+}
+
+.service-card__desc {
+  max-width: 260px;
+  margin-inline: auto;
+}
