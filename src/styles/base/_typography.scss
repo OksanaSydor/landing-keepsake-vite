@@ -1,16 +1,48 @@
-*, html, body {
-  font-family: "Montserrat", sans-serif;
+@use '../utils' as *;
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-head);
+  font-weight: 400;
+  text-transform: uppercase;
+  color: var(--color-text-dark);
 }
 
-html {
-  scroll-behavior: smooth;
+h1 {
+  font-weight: 300;
+  font-size: var(--fs-h1);
+  letter-spacing: 3px;
+  line-height: 1.25;
 }
 
-a {
-  cursor: pointer;
-  text-decoration: none;
+h3 {
+  font-size: rem(16);
+  letter-spacing: 1px;
 }
 
-a:hover {
-  text-decoration: underline;
+.title {
+  font-size: rem(18);
+  letter-spacing: 1.5px;
+  margin-bottom: var(--space-4);
+
+  &::after {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 2px;
+    margin-left: 12px;
+    vertical-align: middle;
+    background: var(--color-accent);
+  }
+}
+
+.lbl,
+.chips label,
+.btn,
+#menu li a,
+.fh {
+  font: 400 var(--fs-nav) / 1 var(--font-head);
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }

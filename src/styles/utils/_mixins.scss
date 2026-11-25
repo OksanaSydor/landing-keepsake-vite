@@ -1,85 +1,49 @@
-@mixin flex-center {
+@use 'sass:map';
+@use 'sass:math';
+@use 'variables' as vars;
+
+// Convert pixels to rem
+@function rem($px, $base: 16px) {
+  @if math.is-unitless($px) {
+    $px: $px * 1px;
+  }
+
+  @return math.div($px, $base) * 1rem;
+}
+
+// Responsive media queries
+@mixin mq($bp) {
+  $min-width: map.get(vars.$breakpoints, $bp);
+
+  @if $min-width == null {
+    @error 'Unknown breakpoint: #{$bp}';
+  }
+
+  @media (min-width: $min-width) {
+    @content;
+  }
+}
+
+// Center elements using Flexbox
+@mixin flex-center(
+  $justify: center,
+  $align: center,
+  $direction: row
+) {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: $justify;
+  align-items: $align;
+  flex-direction: $direction;
 }
 
-@mixin responsive($property, $small, $medium, $large) {
-  #{$property}: $small;
-
-  @media (min-width: 768px) {
-    #{$property}: $medium;
-  }
-
-  @media (min-width: 1200px) {
-    #{$property}: $large;
-  }
-}
-
-@mixin placeholder {
-  ::placeholder { @content; }
-  ::-webkit-input-placeholder { @content; }
-  ::-moz-placeholder { @content; }
-  :-ms-input-placeholder { @content; }
-}
-
-@mixin flex-variant($display, $direction: false, $align: false, $justify: false, $wrap: false) {
-  display: $display;
-
-  @if $direction {
-    flex-direction: $direction;
-  }
-
-  @if $align {
-    align-items: $align;
-  }
-
-  @if $justify {
-    justify-content: $justify;
-  }
-
-  @if $wrap {
-    flex-wrap: $wrap;
-  }
-
-  & > * {
-    min-width: 0;
-  }
-}
-
-@mixin flex($direction: false, $align: false, $justify: false, $wrap: false) {
-  @include flex-variant(flex, $direction: $direction, $align: $align, $justify: $justify, $wrap: $wrap);
-}
-
-@mixin inline-flex($direction: false, $align: false, $justify: false, $wrap: false) {
-  @include flex-variant(inline-flex, $direction: $direction, $align: $align, $justify: $justify, $wrap: $wrap);
-}
-
-@mixin font-face($font-name, $file-name, $weight: normal, $style: normal) {
-  @font-face {
-    font-family: quote($font-name);
-    font-style: $style;
-    font-weight: $weight;
-    src: url($file-name + '.eot');
-    src:
-            url($file-name + '.eot?#iefix') format('embedded-opentype'),
-            url($file-name + '.woff') format('woff'),
-            url($file-name + '.ttf') format('truetype'),
-            url($file-name + '.svg##{$font-name}') format('svg');
-  }
-}
-
-@mixin svg-icon($color: false, $width: false, $height: $width) {
-  display: inline-flex;
-  flex-shrink: 0;
-  @if ($width) {
-    width: $width;
-  }
-  @if ($height) {
-    height: $height;
-  }
-
-  @if $color {
-    fill: $color;
+// Visible keyboard focus
+@mixin focus-ring(
+  $color: var(--color-teal),
+  $width: 2px,
+  $offset: 3px
+) {
+  &:focus-visible {
+    outline: $width solid $color;
+    outline-offset: $offset;
   }
 }

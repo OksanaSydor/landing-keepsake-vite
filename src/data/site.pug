@@ -1,0 +1,202 @@
+//- Centralized data for the Keepsake landing page
+
+-
+  const navItems = [
+    { label: 'Home', href: '#top', active: true },
+    { label: 'Works', href: '#works', active: false },
+    { label: 'Services', href: '#services', active: false },
+    { label: 'Journal', href: '#journal', active: false },
+    { label: 'Contact', href: '#contact', active: false }
+  ]
+
+  const filterCategories = [
+    { id: 'all', label: 'All', checked: true },
+    { id: 'branding', label: 'Branding', checked: false },
+    { id: 'identity', label: 'Identity', checked: false },
+    { id: 'print', label: 'Print', checked: false },
+    { id: 'web', label: 'Web', checked: false },
+    { id: 'motion', label: 'Motion', checked: false }
+  ]
+
+  const works = [
+    {
+      title: 'Moonlight Coffee',
+      category: 'branding',
+      categoryLabel: 'Branding',
+      image: 'work-1',
+      alt: 'Moonlight Coffee branding project'
+    },
+    {
+      title: 'Nordic Bank',
+      category: 'identity',
+      categoryLabel: 'Identity',
+      image: 'work-2',
+      alt: 'Nordic Bank visual identity'
+    },
+    {
+      title: 'Paper Fest',
+      category: 'print',
+      categoryLabel: 'Print',
+      image: 'work-3',
+      alt: 'Paper Fest print design'
+    },
+    {
+      title: 'Bloom Studio',
+      category: 'web',
+      categoryLabel: 'Web',
+      image: 'work-4',
+      alt: 'Bloom Studio website design'
+    },
+    {
+      title: 'Wave Intro',
+      category: 'motion',
+      categoryLabel: 'Motion',
+      image: 'work-5',
+      alt: 'Wave Intro motion design'
+    },
+    {
+      title: 'Green Lab',
+      category: 'branding',
+      categoryLabel: 'Branding',
+      image: 'work-6',
+      alt: 'Green Lab branding project'
+    },
+    {
+      title: 'Atlas Travel',
+      category: 'identity',
+      categoryLabel: 'Identity',
+      image: 'work-7',
+      alt: 'Atlas Travel visual identity'
+    },
+    {
+      title: 'Urban Poster',
+      category: 'print',
+      categoryLabel: 'Print',
+      image: 'work-8',
+      alt: 'Urban Poster print design'
+    },
+    {
+      title: 'Pixel Shop',
+      category: 'web',
+      categoryLabel: 'Web',
+      image: 'work-9',
+      alt: 'Pixel Shop web design'
+    }
+  ]
+
+  const services = [
+    {
+      icon: 'brand',
+      title: 'Branding',
+      desc: 'Names, logos and brand guidelines that stay consistent everywhere.'
+    },
+    {
+      icon: 'identity',
+      title: 'Identity',
+      desc: 'Visual systems with colour, type and graphics built to grow.'
+    },
+    {
+      icon: 'print',
+      title: 'Print',
+      desc: 'Posters, packaging and books prepared for production.'
+    },
+    {
+      icon: 'web',
+      title: 'Web',
+      desc: 'Fast, responsive websites designed and built from scratch.'
+    }
+  ]
+
+  const stats = [
+    { number: '250', label: 'Projects done' },
+    { number: '120', label: 'Happy clients' },
+    { number: '15', label: 'Awards won' },
+    { number: '10', label: 'Years in business' }
+  ]
+
+  const clientLogos = [
+    'Acme',
+    'Nordic',
+    'Bloom',
+    'Atlas',
+    'Moon',
+    'Pixel'
+  ]
+
+  const testimonial = {
+    quote: 'Keepsake understood our brand from the first call. The new identity helped us double our online orders.',
+    initials: 'JD',
+    name: 'John Doe',
+    position: 'Creative Director, Acme'
+  }
+
+  const journalPosts = [
+    {
+      date: 'Oct 12, 2026',
+      dateTime: '2026-10-12',
+      category: 'Branding',
+      title: 'How to choose a brand colour',
+      excerpt: 'Three questions to ask before you pick a palette.',
+      image: 'post-1',
+      alt: 'Brand colour palette'
+    },
+    {
+      date: 'Sep 28, 2026',
+      dateTime: '2026-09-28',
+      category: 'Print',
+      title: 'Paper that feels right',
+      excerpt: 'Choosing stock for posters and packaging.',
+      image: 'post-2',
+      alt: 'Printed paper materials'
+    },
+    {
+      date: 'Sep 10, 2026',
+      dateTime: '2026-09-10',
+      category: 'Web',
+      title: 'Layouts that fit any screen',
+      excerpt: 'Why we design mobile first.',
+      image: 'post-3',
+      alt: 'Responsive website layout'
+    },
+    {
+      date: 'Aug 22, 2026',
+      dateTime: '2026-08-22',
+      category: 'Identity',
+      title: 'A logo is not a brand',
+      excerpt: 'What else an identity needs to work.',
+      image: 'post-4',
+      alt: 'Brand identity design'
+    }
+  ]
+
+  const footerColumns = [
+    {
+      title: 'Studio',
+      links: [
+        { label: 'About', href: '#about' },
+        { label: 'Team', href: '#about' },
+        { label: 'Careers', href: '#contact' }
+      ]
+    },
+    {
+      title: 'Services',
+      links: [
+        { label: 'Branding', href: '#services' },
+        { label: 'Print', href: '#services' },
+        { label: 'Web', href: '#services' }
+      ]
+    }
+  ]
+
+  const socialLinks = [
+    { label: 'Instagram', icon: 'instagram', href: '#' },
+    { label: 'Website', icon: 'globe', href: '#' },
+    { label: 'Email', icon: 'mail', href: 'mailto:hello@keepsake.com' }
+  ]
+
+  const contactInfo = {
+    email: 'hello@keepsake.com',
+    phone: '+1 234 567 890'
+  }
+
+  const copyrightYear = new Date().getFullYear()
