@@ -26,12 +26,12 @@
 }
 
 // Active filter
-#filter-all:checked ~ .filters__chips [for='filter-all'],
-#filter-branding:checked ~ .filters__chips [for='filter-branding'],
-#filter-identity:checked ~ .filters__chips [for='filter-identity'],
-#filter-print:checked ~ .filters__chips [for='filter-print'],
-#filter-web:checked ~ .filters__chips [for='filter-web'],
-#filter-motion:checked ~ .filters__chips [for='filter-motion'] {
+.filters__radio[value='all']:checked ~ .filters__chips [for='filter-all'],
+.filters__radio[value='branding']:checked ~ .filters__chips [for='filter-branding'],
+.filters__radio[value='identity']:checked ~ .filters__chips [for='filter-identity'],
+.filters__radio[value='print']:checked ~ .filters__chips [for='filter-print'],
+.filters__radio[value='web']:checked ~ .filters__chips [for='filter-web'],
+.filters__radio[value='motion']:checked ~ .filters__chips [for='filter-motion'] {
   border-color: var(--color-accent);
   background: var(--color-accent);
   color: var(--color-white);
@@ -132,11 +132,11 @@
 }
 
 // Category filtering
-#filter-branding:checked ~ .works-grid .work-card:not([data-category='branding']),
-#filter-identity:checked ~ .works-grid .work-card:not([data-category='identity']),
-#filter-print:checked ~ .works-grid .work-card:not([data-category='print']),
-#filter-web:checked ~ .works-grid .work-card:not([data-category='web']),
-#filter-motion:checked ~ .works-grid .work-card:not([data-category='motion']) {
+.filters__radio[value='branding']:checked ~ .works-grid .work-card:not([data-category='branding']),
+.filters__radio[value='identity']:checked ~ .works-grid .work-card:not([data-category='identity']),
+.filters__radio[value='print']:checked ~ .works-grid .work-card:not([data-category='print']),
+.filters__radio[value='web']:checked ~ .works-grid .work-card:not([data-category='web']),
+.filters__radio[value='motion']:checked ~ .works-grid .work-card:not([data-category='motion']) {
   display: none;
 }
 

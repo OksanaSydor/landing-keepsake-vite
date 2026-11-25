@@ -3,12 +3,12 @@ header.header
     include logo
 
     button.header__burger(
-      type="button"
-      popovertarget="menu"
-      aria-controls="menu"
+      type="button",
+      popovertarget="menu",
+      aria-controls="menu",
       aria-label="Open navigation"
     )
-      +icon('menu', 24)(class="header__burger-icon header__burger-icon--open")
-      +icon('close', 24)(class="header__burger-icon header__burger-icon--close")
+      +icon("menu", 24).header__burger-icon.header__burger-icon--open
+      +icon("close", 24).header__burger-icon.header__burger-icon--close
 
     include navigation

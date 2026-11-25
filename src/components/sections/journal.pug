@@ -4,12 +4,13 @@ section#journal.journal.container
   .journal-grid
     each post in journalPosts
       article.journal-card
-        +picture(post.image, post.alt, 300, 300, true, '(min-width: 768px) 150px, 96px')(class="journal-card__img")
+        +picture(post.image, post.alt, 300, 300, true, "(min-width: 768px) 150px, 96px").journal-card__img
 
         .journal-card__content
           p.journal-card__meta
             time(datetime=post.dateTime)= post.date
-            |  /
+            |
+            | /
             span= post.category
 
           h3.journal-card__title= post.title

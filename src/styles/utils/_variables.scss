@@ -9,8 +9,8 @@ $colors: (
   'bg-light': #f0f3f4,
   'border': #e1e5e8,
   'footer': #2a2a2d,
-  'overlay': rgba(30, 32, 36, 0.82),
-  'white': #fff
+  'overlay': rgb(30 32 36 / 82%),
+  'white': #fff,
 );
 
 // Fonts
@@ -23,13 +23,13 @@ $spacing: (
   1: 8px,
   2: 16px,
   3: 24px,
-  4: 40px
+  4: 40px,
 );
 
 // Breakpoints
 $breakpoints: (
   md: 768px,
-  lg: 1280px
+  lg: 1280px,
 );
 
 // Typography
@@ -39,7 +39,7 @@ $font-sizes: (
   nav: 12px,
   quote: 16px,
   stat: 38px,
-  logo: 22px
+  logo: 22px,
 );
 
 // Generate CSS custom properties
@@ -64,7 +64,7 @@ $font-sizes: (
   --gutter: 20px;
   --container: 1100px;
   --header-h: 64px;
-    --logo-k: 34px;
+  --logo-k: 34px;
   --icon: 72px;
   --preview: 96px;
   --cols: 1;

@@ -9,10 +9,10 @@ footer#contact.footer
           label.footer__label(for="footer-email") Email
 
           input#footer-email.footer__input(
-            type="email"
-            name="email"
-            required
-            placeholder="Your email"
+            type="email",
+            name="email",
+            required,
+            placeholder="Your email",
             aria-describedby="footer-email-error"
           )
 
@@ -20,7 +20,7 @@ footer#contact.footer
             | Enter a valid email, for example name@mail.com.
 
           label.footer__agreement
-            input(type="checkbox" name="agree" required)
+            input(type="checkbox", name="agree", required)
             | I agree to the privacy policy
 
           button.btn.btn--primary(type="submit") Subscribe
@@ -36,15 +36,12 @@ footer#contact.footer
 
     .footer__bottom
       p.footer__copyright
-        | © #{copyrightYear} Keepsake. All rights reserved.
+        | © #{ copyrightYear } Keepsake. All rights reserved.
 
       .footer__social
         each social in socialLinks
-          a(
-            href=social.href
-            aria-label=social.label
-          )
+          a(href=social.href, aria-label=social.label)
             +icon(social.icon, 18)
 
-  a.footer__back-to-top(href="#top" aria-label="Back to top")
-    +icon('arrow-up', 20)
+  a.footer__back-to-top(href="#top", aria-label="Back to top")
+    +icon("arrow-up", 20)

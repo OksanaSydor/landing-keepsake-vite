@@ -15,7 +15,7 @@
 @mixin mq($bp) {
   $min-width: map.get(vars.$breakpoints, $bp);
 
-  @if $min-width == null {
+  @if not $min-width {
     @error 'Unknown breakpoint: #{$bp}';
   }
 
@@ -25,11 +25,7 @@
 }
 
 // Center elements using Flexbox
-@mixin flex-center(
-  $justify: center,
-  $align: center,
-  $direction: row
-) {
+@mixin flex-center($justify: center, $align: center, $direction: row) {
   display: flex;
   justify-content: $justify;
   align-items: $align;
@@ -37,11 +33,7 @@
 }
 
 // Visible keyboard focus
-@mixin focus-ring(
-  $color: var(--color-teal),
-  $width: 2px,
-  $offset: 3px
-) {
+@mixin focus-ring($color: var(--color-teal), $width: 2px, $offset: 3px) {
   &:focus-visible {
     outline: $width solid $color;
     outline-offset: $offset;

@@ -1,21 +1,18 @@
 section#works.works.container
   h2.section-title Our awesome works
 
-  .filters(role="group" aria-label="Filter works by category")
+  .filters(role="group", aria-label="Filter works by category")
     each cat in filterCategories
       if cat.checked
         input.filters__radio.sr(
-          type="radio"
-          name="filter"
-          id=`filter-${cat.id}`
+          type="radio",
+          name="filter",
+          id=`filter-${cat.id}`,
+          value=cat.id,
           checked
         )
       else
-        input.filters__radio.sr(
-          type="radio"
-          name="filter"
-          id=`filter-${cat.id}`
-        )
+        input.filters__radio.sr(type="radio", name="filter", id=`filter-${cat.id}`, value=cat.id)
 
     .filters__chips
       each cat in filterCategories
@@ -26,4 +23,4 @@ section#works.works.container
         +work-card(work)
 
     .works__more
-      +btn('Load more works', '', 'secondary')
+      +btn("Load more works", "", "secondary")

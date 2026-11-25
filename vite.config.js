@@ -1,18 +1,18 @@
-import { defineConfig } from "vite";
-import vituum from "vituum";
-import pug from "@vituum/vite-plugin-pug";
+import { defineConfig } from 'vite';
+import vituum from 'vituum';
+import pug from '@vituum/vite-plugin-pug';
 
 export default defineConfig({
   plugins: [
     vituum(),
     pug({
-      root: "./src",
+      root: './src',
     }),
   ],
   css: {
     preprocessorOptions: {
       scss: {
-        api: "modern",
+        api: 'modern',
       },
     },
   },
