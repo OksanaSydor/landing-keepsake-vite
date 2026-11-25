@@ -29,7 +29,11 @@ mixin icon(name, width = 24, height = width)
         path(d="M3 12h18")
         path(d="M12 3c-4 5-4 13 0 18")
         path(d="M12 3c4 5 4 13 0 18")
+      when 'menu'
+        path(d="M3 6h18M3 12h18M3 18h18")
 
+      when 'close'
+        path(d="M5 5l14 14M19 5L5 19")
       when 'arrow-up'
         path(d="M12 19V5")
         path(d="m5 12 7-7 7 7")

@@ -1,5 +1,30 @@
-nav(class="navigation")
-    ul
-        each link in navLinks
-            li
-                a(href=link.href)= link.text
+nav#menu.nav(popover aria-label="Main navigation")
+    ul.nav__list
+        each item in navItems
+            li.nav__item
+                a.nav__link(
+                    href=item.href
+                    class={'nav__link--active': item.active}
+                    aria-current=item.active ? 'page' : false
+                )= item.label
+
+    a.btn.btn--primary.nav__contact(href="#contact") Contact us
+
+    a.btn.btn--favourite.nav__favourites(
+        href="#"
+        aria-label="Favourites"
+    )
+        +icon('heart', 18, 18)
+        span Favourites
+
+    address.nav__contact-info
+        a(href=`mailto:${contactInfo.email}`)= contactInfo.email
+        a(href=`tel:${contactInfo.phone.replace(/\s/g, '')}`)= contactInfo.phone
+
+    .nav__social
+        each social in socialLinks
+            a.nav__social-link(
+                href=social.href
+                aria-label=social.label
+            )
+                +icon(social.icon, 18)

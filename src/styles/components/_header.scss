@@ -1,15 +1,223 @@
-@use '../utils/mixins' as *;
+@use '../utils' as *;
 
+// Fixed header
 .header {
-  // declare mixins before styles
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  height: var(--header-h);
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-white);
+}
 
-  @include flex-center;
-  background: var(--color-primary);
-  color: white;
-  padding: 1rem;
-  text-align: center;
+// Header container
+.header__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
 
-  h1 {
-    font-size: 2rem;
+// Logo
+.logo {
+  display: flex;
+  align-items: center;
+  color: var(--color-text-dark);
+  font: 700 var(--fs-logo) / 1 var(--font-logo);
+}
+
+.logo__mark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--logo-k);
+  height: var(--logo-k);
+  margin-right: 2px;
+  border-radius: 50%;
+  background: var(--color-text-dark);
+  color: var(--color-white);
+}
+
+// Mobile burger
+.header__burger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  color: var(--color-text-dark);
+
+  &:focus-visible {
+    outline: 2px solid var(--color-teal);
+    outline-offset: 2px;
+  }
+}
+
+.header__burger-icon--close {
+  display: none;
+}
+
+// Change burger into close icon when menu is open
+.header:has(.nav:popover-open) {
+  .header__burger-icon--open {
+    display: none;
+  }
+
+  .header__burger-icon--close {
+    display: block;
+  }
+}
+
+// Navigation popover
+.nav {
+  position: fixed;
+  inset: var(--header-h) 0 auto;
+  width: 100%;
+  max-height: calc(100vh - var(--header-h));
+  overflow: auto;
+  margin: 0;
+  padding: var(--space-2) var(--gutter) var(--space-3);
+  border: 0;
+  background: var(--color-white);
+}
+
+.nav:popover-open {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+// Navigation links
+.nav__list {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav__item {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.nav__link {
+  display: block;
+  padding-block: var(--space-2);
+  color: var(--color-text-dark);
+  font: 400 var(--fs-nav) / 1 var(--font-head);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+
+  &:hover,
+  &--active {
+    color: var(--color-accent);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-teal);
+    outline-offset: 2px;
+  }
+}
+
+// Contact and favourites buttons
+.nav__contact,
+.nav__favourites {
+  width: 100%;
+}
+
+.nav__favourites {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-1);
+}
+
+// Contact information
+.nav__contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding-top: var(--space-2);
+  border-top: 1px solid var(--color-border);
+  font-size: 13px;
+}
+
+.nav__contact-info a:hover {
+  color: var(--color-accent);
+}
+
+// Social links
+.nav__social {
+  display: flex;
+  gap: var(--space-1);
+}
+
+.nav__social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+
+  &:hover {
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-teal);
+    outline-offset: 2px;
+  }
+}
+
+// Tablet and desktop
+@include mq(md) {
+  .header__burger {
+    display: none;
+  }
+
+  .nav,
+  .nav:popover-open {
+    position: static;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--nav-gap);
+    width: auto;
+    max-height: none;
+    overflow: visible;
+    padding: 0;
+    border: 0;
+    background: transparent;
+  }
+
+  .nav__list {
+    flex-direction: row;
+    gap: var(--nav-gap);
+  }
+
+  .nav__item {
+    border: 0;
+  }
+
+  .nav__link {
+    padding: 0;
+  }
+
+  .nav__contact,
+  .nav__contact-info,
+  .nav__social {
+    display: none;
+  }
+
+  .nav__favourites {
+    width: 36px;
+    height: 36px;
+    padding: 0;
+  }
+
+  .nav__favourites span {
+    display: none;
   }
 }
